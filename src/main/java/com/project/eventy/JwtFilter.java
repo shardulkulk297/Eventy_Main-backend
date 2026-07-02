@@ -35,7 +35,7 @@ public class JwtFilter extends OncePerRequestFilter {
     ) throws ServletException, IOException {
         final String authorizationHeader = request.getHeader("Authorization");
         String username = null;
-        String jwt = null;
+        String jwt = null; //variable to pass in token
 
         final String path = request.getRequestURI();
 
@@ -52,13 +52,13 @@ public class JwtFilter extends OncePerRequestFilter {
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             jwt = authorizationHeader.substring(7);
             try {
-                username = jwtUtil.extractUsername(jwt);
+                username = jwtUtil.extractUsername(jwt); //Passing in token 
             } catch (Exception e) {
                 System.out.println("Invalid JWT Token: " + e.getMessage());
             }
         }
 
-        // **CRUCIAL FIX**: Only proceed if we have a username and the user is not already authenticated
+        // Only proceed if we have a username and the user is not already authenticated
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = this.customUserDetailsService.loadUserByUsername(username);
 
