@@ -3,6 +3,8 @@ package com.project.eventy.entity;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
@@ -16,7 +18,7 @@ import javafx.util.converter.LocalDateStringConverter;
 public class Event {
 
     @Id
-    @Table(name = "event")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     private String title;
     private String description;
