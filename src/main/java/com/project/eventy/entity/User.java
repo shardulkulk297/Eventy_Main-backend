@@ -1,5 +1,7 @@
 package com.project.eventy.entity;
 
+import com.project.eventy.entity.enums.Role;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,9 +17,8 @@ public class User {
     private int id;
     private String username;
     private String password;
-    private String role;
+    private Role role;
 
-    
     public int getId() {
         return id;
     }
@@ -37,13 +38,17 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
+
+
+
+ 
     
     
 

@@ -1,13 +1,14 @@
 package com.project.eventy.service;
 
-import javax.management.relation.Role;
 
-import com.project.eventy.entity.User;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.project.eventy.entity.User;
+import com.project.eventy.entity.enums.Role;
 import com.project.eventy.repository.UserRepository;
 
 @Service
@@ -31,13 +32,29 @@ public class UserService {
         User userToFind = userRepository.getByUsername(username);
 
         switch(userToFind.getRole()){
-            case "CUSTOMER"->{
+            case Role.EVENT_MANAGER->{
 
 
             }
-            case "EVENT_MANAGER"->{
+            case Role.PARTICIPANT->{
 
             }
+            case Role.SUPER_ADMIN->{
+                
+            }
+            case Role.ORG_ADMIN->{
+
+                return null;
+
+            }
+
+            default -> {
+                return null;
+            }
+
+        }
+
+        return null;
             
     }
 

@@ -26,8 +26,10 @@ public class CustomUserDetailsService implements UserDetailsService {
         if(myuser == null){
             throw new UsernameNotFoundException("User not found with the given username");
         }
+ 
 
-        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(myuser.getRole());
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(myuser.getRole().name());
+     
 
         List<GrantedAuthority> authorities = List.of(authority);
 
