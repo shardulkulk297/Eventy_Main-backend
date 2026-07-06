@@ -16,6 +16,9 @@ public class Organization {
     private int id;
     @OneToOne
     private User user;
+
+    @OneToOne
+    private OrgAdmin createdBy;
     private String name;
     private String shortName;
     private String orgnizationType;
@@ -29,6 +32,14 @@ public class Organization {
     private String country;
     private String postalCode;
     private boolean active;
+
+    public OrgAdmin getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(OrgAdmin createdBy) {
+        this.createdBy = createdBy;
+    }
 
     public int getId() {
         return id;

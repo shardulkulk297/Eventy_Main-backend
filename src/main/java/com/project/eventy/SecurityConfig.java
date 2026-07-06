@@ -26,7 +26,7 @@ public class SecurityConfig {
 
     @Autowired
     private JwtFilter jwtFilter;
-    @
+
 
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http, JwtFilter jwtFilter) throws Exception{
@@ -35,7 +35,10 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize->authorize
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/api/user/signup").permitAll()
-                       
+                        .requestMatchers("/api/eventManger/add").permitAll()
+                        .requestMatchers("/api/participant/add").permitAll()
+                        .requestMatchers("/api/orgAdmin/add").permitAll()
+                        .requestMatchers("/api/superAdmin/add").permitAll()
                         .anyRequest().authenticated()
                 )
                  .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
