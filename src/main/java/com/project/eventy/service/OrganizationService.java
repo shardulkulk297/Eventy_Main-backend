@@ -1,5 +1,6 @@
 package com.project.eventy.service;
 
+import com.project.eventy.entity.Event;
 import com.project.eventy.entity.OrgAdmin;
 import com.project.eventy.entity.Organization;
 import com.project.eventy.exception.ResourceNotFoundException;
@@ -38,4 +39,5 @@ public class OrganizationService {
     {
         return organizationRepository.getOrganizationsByOrgAdmin(orgAdminId);
     }
+
 }
