@@ -2,6 +2,8 @@ package com.project.eventy.entity;
 
 import java.time.LocalDateTime;
 
+import com.project.eventy.entity.enums.EventType;
+import com.project.eventy.entity.enums.RegistrationType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,8 +24,8 @@ public class Event {
     private int id;
     private String title;
     private String description;
-    private String eventType;
-    private String registrationType;
+    private EventType eventType;
+    private RegistrationType registrationType;
     private String Visibility;
     private String Status;
     @ManyToOne
@@ -67,19 +69,19 @@ public class Event {
         this.description = description;
     }
 
-    public String getEventType() {
+    public EventType getEventType() {
         return eventType;
     }
 
-    public void setEventType(String eventType) {
+    public void setEventType(EventType eventType) {
         this.eventType = eventType;
     }
 
-    public String getRegistrationType() {
+    public RegistrationType getRegistrationType() {
         return registrationType;
     }
 
-    public void setRegistrationType(String registrationType) {
+    public void setRegistrationType(RegistrationType registrationType) {
         this.registrationType = registrationType;
     }
 
